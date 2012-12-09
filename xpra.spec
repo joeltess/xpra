@@ -1,28 +1,24 @@
-%define module	xpra
-%define name	python-%{module}
-%define version 0.7.0
-%define release 1
-
-
 Summary:	Persistent remote applications for X
-Vendor:		http://code.google.com/p/partiwm/wiki/xpra
 Name:		xpra
-Version:	%{version}
-Release:	%{release}
+Version:	0.7.1
+Release:	2
 License:	GPLv2+
-Requires:	pygtk2, xorg-x11-server-utils, xorg-x11-server-Xvfb, python-imaging, dbus-python, python-uuid
 Group:		Networking/Other
 URL:		http://xpra.org/
+Source0:	http://xpra.org/src/%{name}-%{version}.tar.xz
+Patch0:		libavcdc_lx11.patch
+Patch1:		disable-x264.patch
 BuildRequires:	python-setuptools
 BuildRequires:	python-cython
 BuildRequires:	pkgconfig(pygobject-2.0)
 BuildRequires:	pkgconfig(gdk-x11-2.0)
-BuildRequires:	pkgconfig(x264)
 BuildRequires:	pkgconfig(libswscale)
 BuildRequires:	pygtk2.0-devel
-Source0:	http://xpra.org/src/%{name}-%{version}.tar.xz
-
-Patch0:		libavcdc_lx11.patch
+Requires:	pygtk2
+Requires:	x11-tools
+Requires:	x11-server-xvfb
+Requires:	python-imaging
+Requires:	dbus-python
 
 %description
 Xpra gives you "persistent remote applications" for X. That is, unlike normal
@@ -37,9 +33,9 @@ for remote X apps.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
-
 sed -e "s:libwebp.so.2:libwebp.so.4:" \
 	-i "xpra/webm/__init__.py" || die
 
@@ -47,7 +43,7 @@ python make_constants_pxi.py wimpiggy/lowlevel/constants.txt wimpiggy/lowlevel/c
 python setup.py build
 
 %install
-%{__python} setup.py install -O1  --prefix /usr --skip-build --root %{buildroot}
+python setup.py install -O1  --prefix /usr --skip-build --root %{buildroot}
 
 %files
 %{_sysconfdir}/%{name}/xorg.conf
@@ -56,14 +52,15 @@ python setup.py build
 %{_bindir}/parti-repl
 %{_bindir}/xpra*
 %{_iconsdir}/%{name}.png
-%{_mandir}/man1/xpra_launcher.1.*
 %{_datadir}/applications/xpra_launcher.desktop
 %{python_sitearch}/xpra
 %{python_sitearch}/parti
 %{python_sitearch}/wimpiggy
 %{python_sitearch}/parti_all-*.egg-info
-/usr/share/xpra
-/usr/share/parti
-/usr/share/wimpiggy
-/usr/share/man/man1/xpra.*
-/usr/share/man/man1/parti.*
+%{_datadir}/xpra
+%{_datadir}/parti
+%{_datadir}/wimpiggy
+%{_mandir}/man1/xpra.1.*
+%{_mandir}/man1/parti.1.*
+%{_mandir}/man1/xpra_launcher.1.*
+
