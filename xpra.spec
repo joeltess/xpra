@@ -1,7 +1,7 @@
 Summary:	Persistent remote applications for X
 Name:		xpra
 Version:	0.7.8
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://xpra.org/
@@ -13,6 +13,7 @@ BuildRequires:	python-cython
 BuildRequires:	pkgconfig(pygobject-2.0)
 BuildRequires:	pkgconfig(gdk-x11-2.0)
 BuildRequires:	pkgconfig(libswscale)
+BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pygtk2.0-devel
 Requires:	pygtk2
 Requires:	x11-tools
