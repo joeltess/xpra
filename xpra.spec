@@ -1,7 +1,7 @@
 Summary:	Persistent remote applications for X
 Name:		xpra
 Version:	0.7.8
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://xpra.org/
@@ -19,7 +19,7 @@ Requires:	pygtk2
 Requires:	x11-tools
 Requires:	x11-server-xvfb
 Requires:	python-imaging
-Requires:	dbus-python
+Requires:	python-dbus
 
 %description
 Xpra gives you "persistent remote applications" for X. That is, unlike normal
