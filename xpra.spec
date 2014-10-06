@@ -1,21 +1,28 @@
 Summary:	Persistent remote applications for X
 Name:		xpra
-Version:	0.7.8
-Release:	9
+Version:	0.14.8
+Release:	1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://xpra.org/
 Source0:	http://xpra.org/src/%{name}-%{version}.tar.xz
-Patch0:		libavcdc_lx11.patch
-Patch1:		disable-x264.patch
 BuildRequires:	python-setuptools
 BuildRequires:	python-cython
-BuildRequires:	pkgconfig(pygobject-2.0)
-BuildRequires:	pkgconfig(gdk-x11-2.0)
+BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
 BuildRequires:	pkgconfig(xtst)
-BuildRequires:	pygtk2.0-devel
-Requires:	pygtk2
+BuildRequires: typelib(GObject)
+BuildRequires: typelib(Gdk)
+BuildRequires: typelib(GdkPixbuf)
+BuildRequires: typelib(GdkX11)
+BuildRequires: typelib(Gtk) = 3.0
+BuildRequires: typelib(Notify)
+Requires: typelib(GObject)
+Requires: typelib(Gdk)
+Requires: typelib(GdkPixbuf)
+Requires: typelib(GdkX11)
+Requires: typelib(Gtk) = 3.0
+Requires: typelib(Notify)
 Requires:	x11-tools
 Requires:	x11-server-xvfb
 Requires:	python-imaging
@@ -33,35 +40,23 @@ for remote X apps.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
+%apply_patches
 
 %build
-sed -e "s:libwebp.so.2:libwebp.so.4:" \
-	-i "xpra/webm/__init__.py" || die
-
-python make_constants_pxi.py wimpiggy/lowlevel/constants.txt wimpiggy/lowlevel/constants.pxi
-python setup.py build
+python setup.py build --without-enc_x264 build_ext --libraries X11
 
 %install
 python setup.py install -O1  --prefix /usr --skip-build --root %{buildroot}
 
 %files
-%{_sysconfdir}/%{name}/xorg.conf
 %{_sysconfdir}/%{name}/xpra.conf
-%{_bindir}/parti
-%{_bindir}/parti-repl
 %{_bindir}/xpra*
 %{_iconsdir}/%{name}.png
 %{_datadir}/applications/xpra_launcher.desktop
 %{python_sitearch}/xpra
-%{python_sitearch}/parti
-%{python_sitearch}/wimpiggy
-%{python_sitearch}/parti_all-*.egg-info
+%{python_sitearch}/xpra-*.egg-info
 %{_datadir}/xpra
-%{_datadir}/parti
-%{_datadir}/wimpiggy
+%{_datadir}/applications/xpra.desktop
 %{_mandir}/man1/xpra.1.*
-%{_mandir}/man1/parti.1.*
 %{_mandir}/man1/xpra_launcher.1.*
 

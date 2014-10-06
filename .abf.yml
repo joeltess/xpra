@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   xpra-0.7.8.tar.xz: 586f4e981a3fadc7f1b8057702e76af93cb8d382
+sources:
+  xpra-0.14.8.tar.xz: 525e2577dc6ef4ffc9a8378d64d0e0cc26c0a914
