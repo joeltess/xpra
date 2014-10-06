@@ -8,6 +8,7 @@ URL:		http://xpra.org/
 Source0:	http://xpra.org/src/%{name}-%{version}.tar.xz
 BuildRequires:	python-setuptools
 BuildRequires:	python-cython
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
 BuildRequires:	pkgconfig(xkbfile)
