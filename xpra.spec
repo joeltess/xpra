@@ -10,6 +10,7 @@ BuildRequires:	python-setuptools
 BuildRequires:	python-cython
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
+BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xtst)
 BuildRequires: typelib(GObject)
 BuildRequires: typelib(Gdk)
