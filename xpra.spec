@@ -1,6 +1,6 @@
 Summary:	Persistent remote applications for X
 Name:		xpra
-Version:	0.14.8
+Version:	0.14.9
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
@@ -55,10 +55,9 @@ python setup.py install -O1  --prefix /usr --skip-build --root %{buildroot}
 %{_bindir}/xpra*
 %{_iconsdir}/%{name}.png
 %{_datadir}/applications/xpra_launcher.desktop
-%{python_sitearch}/xpra
-%{python_sitearch}/xpra-*.egg-info
+%{py_platsitedir}/xpra
+%{py_platsitedir}/xpra-*.egg-info
 %{_datadir}/xpra
 %{_datadir}/applications/xpra.desktop
 %{_mandir}/man1/xpra.1.*
 %{_mandir}/man1/xpra_launcher.1.*
-
