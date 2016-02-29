@@ -1,30 +1,32 @@
 Summary:	Persistent remote applications for X
 Name:		xpra
-Version:	0.14.13
-Release:	3
+Version:	0.16.2
+Release:	1
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://xpra.org/
 Source0:	http://xpra.org/src/%{name}-%{version}.tar.xz
+Patch0:		xpra-0.16.2-compile.patch
 BuildRequires:	python-setuptools
 BuildRequires:	python-cython
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xtst)
-BuildRequires: typelib(GObject)
-BuildRequires: typelib(Gdk)
-BuildRequires: typelib(GdkPixbuf)
-BuildRequires: typelib(GdkX11)
-BuildRequires: typelib(Gtk) = 3.0
-BuildRequires: typelib(Notify)
-Requires: typelib(GObject)
-Requires: typelib(Gdk)
-Requires: typelib(GdkPixbuf)
-Requires: typelib(GdkX11)
-Requires: typelib(Gtk) = 3.0
-Requires: typelib(Notify)
+BuildRequires:	typelib(GObject)
+BuildRequires:	typelib(Gdk)
+BuildRequires:	typelib(GdkPixbuf)
+BuildRequires:	typelib(GdkX11)
+BuildRequires:	typelib(Gtk) = 3.0
+BuildRequires:	typelib(Notify)
+Requires:	typelib(GObject)
+Requires:	typelib(Gdk)
+Requires:	typelib(GdkPixbuf)
+Requires:	typelib(GdkX11)
+Requires:	typelib(Gtk) = 3.0
+Requires:	typelib(Notify)
 Requires:	x11-tools
 Requires:	x11-server-xvfb
 Requires:	python-imaging
@@ -61,3 +63,8 @@ python setup.py install -O1  --prefix /usr --skip-build --root %{buildroot}
 %{_datadir}/applications/xpra.desktop
 %{_mandir}/man1/xpra.1.*
 %{_mandir}/man1/xpra_launcher.1.*
+%{_prefix}/lib/cups/backend/xpraforwarder
+%{_prefix}/lib/tmpfiles.d/xpra.conf
+%{_datadir}/appdata/xpra.appdata.xml
+%{_datadir}/mime/packages/application-x-xpraconfig.xml
+
