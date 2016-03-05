@@ -11,6 +11,7 @@ BuildRequires:	python-setuptools
 BuildRequires:	python-cython
 BuildRequires:	pkgconfig(python3)
 BuildRequires:	pkgconfig(py3cairo)
+BuildRequires:	pkgconfig(pycairo)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
 BuildRequires:	pkgconfig(xkbfile)
