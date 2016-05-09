@@ -1,6 +1,6 @@
 Summary:	Persistent remote applications for X
 Name:		xpra
-Version:	0.16.2
+Version:	0.17.1
 Release:	1
 License:	GPLv2+
 Group:		Networking/Other
