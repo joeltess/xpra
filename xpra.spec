@@ -10,8 +10,11 @@ Patch0:		xpra-0.17.1-compile.patch
 BuildRequires:	python-setuptools
 BuildRequires:	python-cython
 BuildRequires:	pkgconfig(python3)
+BuildRequires:	pkgconfig(python)
 BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	pkgconfig(pycairo)
+BuildRequires:	pkgconfig(pygobject-2.0)
+BuildRequires:  pkgconfig(pygtk-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
 BuildRequires:	pkgconfig(xkbfile)
@@ -32,6 +35,7 @@ Requires:	x11-tools
 Requires:	x11-server-xvfb
 Requires:	python-imaging
 Requires:	python-dbus
+Requires:	python-cups
 
 %description
 Xpra gives you "persistent remote applications" for X. That is, unlike normal
@@ -48,13 +52,14 @@ for remote X apps.
 %apply_patches
 
 %build
-python setup.py build --without-enc_x264 build_ext --libraries X11
+python setup.py build --without-enc_x264 build_ext --libraries X11 --libraries m
 
 %install
 python setup.py install -O1  --prefix /usr --skip-build --root %{buildroot}
 
 %files
 %{_sysconfdir}/%{name}/xpra.conf
+%{_sysconfdir}/%{name}/xorg.conf
 %{_bindir}/xpra*
 %{_iconsdir}/%{name}.png
 %{_datadir}/applications/xpra_launcher.desktop
