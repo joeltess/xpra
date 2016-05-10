@@ -1,5 +1,5 @@
 --- xpra-0.16.2/setup.py.omv~	2016-02-29 03:22:52.239874758 +0100
-xpra-0.17.1/setup.py
+xpra-0.17.1/setup.py.omv~
 @@ -603,7 +603,7 @@ def exec_pkgconfig(*pkgs_options, **ekw)
              add_to_keywords(kw, 'extra_compile_args', "/WX")
              add_to_keywords(kw, 'extra_link_args', "/WX")
