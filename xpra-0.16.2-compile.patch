@@ -1,6 +1,7 @@
 --- xpra-0.16.2/setup.py.omv~	2016-02-29 03:22:52.239874758 +0100
 xpra-0.17.1/setup.py.omv~
-@@ -603,7 +603,7 @@ def exec_pkgconfig(*pkgs_options, **ekw)
+#@@ -603,7 +603,7 @@ def exec_pkgconfig(*pkgs_options, **ekw)
+@@ -585,7 +585,7 @@ def exec_pkgconfig(*pkgs_options, **ekw)
              add_to_keywords(kw, 'extra_compile_args', "/WX")
              add_to_keywords(kw, 'extra_link_args', "/WX")
          else:
@@ -9,7 +10,7 @@ xpra-0.17.1/setup.py.omv~
                  #clang emits too many warnings with cython code,
                  #so we can't enable Werror
                  eifd = ["-Werror",
-@@ -1880,7 +1880,7 @@ if client_ENABLED and PYTHON3:
+@@ -2018,7 +2018,7 @@ if client_ENABLED and gtk3_ENABLED:
      #cairo workaround:
      cython_add(Extension("xpra.client.gtk3.cairo_workaround",
                  ["xpra/client/gtk3/cairo_workaround.pyx", buffers_c],
