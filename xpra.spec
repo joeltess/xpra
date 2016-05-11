@@ -22,7 +22,7 @@ BuildRequires:	typelib(GdkPixbuf)
 BuildRequires:	typelib(GdkX11)
 BuildRequires:	typelib(Gtk) = 3.0
 BuildRequires:	typelib(Notify)
-Requires:	typelib(GObject2)
+Requires:	typelib(GObject)
 Requires:	typelib(Gdk)
 Requires:	typelib(GdkPixbuf)
 Requires:	typelib(GdkX11)
