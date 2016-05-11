@@ -9,8 +9,8 @@ Source0:	http://xpra.org/src/%{name}-%{version}.tar.bz2
 Patch0:		xpra-0.17.1-compile.patch
 BuildRequires:	python-setuptools
 BuildRequires:	python-cython
-BuildRequires:	pkgconfig(python3)
-BuildRequires:	pkgconfig(py3cairo)
+BuildRequires:	pkgconfig(python2)
+#BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	pkgconfig(pycairo)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
