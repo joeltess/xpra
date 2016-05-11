@@ -7,22 +7,22 @@ Group:		Networking/Other
 URL:		http://xpra.org/
 Source0:	http://xpra.org/src/%{name}-%{version}.tar.bz2
 Patch0:		xpra-0.17.1-compile.patch
-BuildRequires:	python-setuptools
-BuildRequires:	python-cython
+BuildRequires:	python2-setuptools
+BuildRequires:	python2-cython
 BuildRequires:	pkgconfig(python2)
 #BuildRequires:	pkgconfig(py3cairo)
-BuildRequires:	pkgconfig(pycairo)
+BuildRequires:	pkgconfig(py2cairo)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
 BuildRequires:	pkgconfig(xkbfile)
 BuildRequires:	pkgconfig(xtst)
-BuildRequires:	typelib(GObject)
+BuildRequires:	typelib(GObject2)
 BuildRequires:	typelib(Gdk)
 BuildRequires:	typelib(GdkPixbuf)
 BuildRequires:	typelib(GdkX11)
 BuildRequires:	typelib(Gtk) = 3.0
 BuildRequires:	typelib(Notify)
-Requires:	typelib(GObject)
+Requires:	typelib(GObject2)
 Requires:	typelib(Gdk)
 Requires:	typelib(GdkPixbuf)
 Requires:	typelib(GdkX11)
