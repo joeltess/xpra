@@ -10,7 +10,7 @@ Patch0:		xpra-0.17.1-compile.patch
 BuildRequires:	python2-setuptools
 BuildRequires:	python-cython
 BuildRequires:	pkgconfig(python2)
-#BuildRequires:	pkgconfig(py3cairo)
+BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	pkgconfig(pycairo)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libswscale)
