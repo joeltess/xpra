@@ -8,7 +8,7 @@ URL:		http://xpra.org/
 Source0:	http://xpra.org/src/%{name}-%{version}.tar.bz2
 Patch0:		xpra-0.17.1-compile.patch
 BuildRequires:	python2-setuptools
-BuildRequires:	python2-cython
+BuildRequires:	python-cython
 BuildRequires:	pkgconfig(python2)
 #BuildRequires:	pkgconfig(py3cairo)
 BuildRequires:	pkgconfig(pycairo)
